@@ -19,9 +19,15 @@ class GameModel extends ChangeNotifier {
   int losses = 0;
   int draws = 0;
 
+  void selectUserHand(Hand hand) {
+    userHand = hand;
+    notifyListeners();
+  }
+
   void playGame() {
+    if (userHand == null) return;
+
     _gameState = GameState.playing;
-    userHand = Hand.values[Random().nextInt(Hand.values.length)];
     computerHand = Hand.values[Random().nextInt(Hand.values.length)];
 
     if (userHand == computerHand) {

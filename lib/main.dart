@@ -35,28 +35,40 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final gameModel = Provider.of<GameModel>(context, listen: false);
 
-    return StreamBuilder<double>(
-      stream: DualScreenInfo.hingeAngleEvents,
+    return FutureBuilder<bool>(
+      future: DualScreenInfo.hasHingeAngleSensor,
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final hingeAngle = snapshot.data!;
-          if (hingeAngle > 170 && gameModel.gameState == GameState.ready) {
-            gameModel.playGame();
-          } else if (hingeAngle < 170 &&
-              gameModel.gameState != GameState.ready) {
-            gameModel.resetGame();
-          }
+        if (snapshot.data == false) {
+          return const Scaffold(
+            body: Center(child: Text('Hinge angle sensor not available.')),
+          );
         }
-
-        return Consumer<GameModel>(
-          builder: (context, gameModel, child) {
-            switch (gameModel.gameState) {
-              case GameState.ready:
-                return const ReadyScreen();
-              case GameState.playing:
-              case GameState.result:
-                return const GameScreen();
+        return StreamBuilder<double>(
+          stream: DualScreenInfo.hingeAngleEvents,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final hingeAngle = snapshot.data!;
+              if (hingeAngle > 170 &&
+                  gameModel.gameState == GameState.ready &&
+                  gameModel.userHand != null) {
+                gameModel.playGame();
+              } else if (hingeAngle < 170 &&
+                  gameModel.gameState != GameState.ready) {
+                gameModel.resetGame();
+              }
             }
+
+            return Consumer<GameModel>(
+              builder: (context, gameModel, child) {
+                switch (gameModel.gameState) {
+                  case GameState.ready:
+                    return const ReadyScreen();
+                  case GameState.playing:
+                  case GameState.result:
+                    return const GameScreen();
+                }
+              },
+            );
           },
         );
       },

@@ -53,7 +53,7 @@ In this phase, we will integrate the `dual_screen` package to detect the hinge a
 
 *   [x] Use `DualScreenInfo.hingeAngleEvents` to listen for hinge angle changes.
 *   [x] Trigger the game when the hinge angle exceeds 170 degrees.
-*   [ ] Add a check for `DualScreenInfo.hasHingeAngleSensor` and display a message if the sensor is not available.
+*   [x] Add a check for `DualScreenInfo.hasHingeAngleSensor` and display a message if the sensor is not available.
 *   [ ] Test the app on a foldable device or emulator.
 *   [x] Create/modify unit tests for testing the code added or modified in this phase, if relevant.
 *   [x] Run the `dart_fix` tool to clean up the code.

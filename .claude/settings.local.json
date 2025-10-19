@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter analyze)",
+      "Bash(dart format lib/)",
+      "Bash(git add -A)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Implement user hand selection with ASCII art\n\nThis update changes the game flow to allow users to select their hand before opening the device:\n\n- Add user hand selection UI in ReadyScreen with ASCII art representations\n- Update GameModel to support manual hand selection via selectUserHand()\n- Modify hinge logic to require user hand selection before game starts\n- Enhance GameScreen to display both hands using ASCII art\n- Update Play Again button to properly reset the game\n- Add visual feedback when user is ready to play\n\nThe new flow:\n1. User selects hand (Rock/Paper/Scissors) while device is closed\n2. User opens device (hinge > 170°) to trigger game\n3. CPU randomly selects hand and result is displayed\n4. Scores are tracked and displayed throughout\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
