@@ -142,6 +142,20 @@ class GameScreen extends StatelessWidget {
               'Score: W:${gameModel.wins} L:${gameModel.losses} D:${gameModel.draws}',
               style: Theme.of(context).textTheme.titleLarge,
             ),
+            const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.grey.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                'Hinge Angle: ${gameModel.hingeAngle.toStringAsFixed(1)}°',
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
             const SizedBox(height: 40),
             if (gameModel.gameState == GameState.result)
               ElevatedButton(

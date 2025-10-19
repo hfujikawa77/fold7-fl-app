@@ -19,6 +19,14 @@ class GameModel extends ChangeNotifier {
   int losses = 0;
   int draws = 0;
 
+  double _hingeAngle = 0.0;
+  double get hingeAngle => _hingeAngle;
+
+  void updateHingeAngle(double angle) {
+    _hingeAngle = angle;
+    notifyListeners();
+  }
+
   void selectUserHand(Hand hand) {
     userHand = hand;
     notifyListeners();

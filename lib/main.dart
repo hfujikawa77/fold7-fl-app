@@ -48,6 +48,8 @@ class MainScreen extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final hingeAngle = snapshot.data!;
+              gameModel.updateHingeAngle(hingeAngle);
+
               if (hingeAngle > 170 &&
                   gameModel.gameState == GameState.ready &&
                   gameModel.userHand != null) {

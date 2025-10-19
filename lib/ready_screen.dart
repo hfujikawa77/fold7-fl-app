@@ -108,6 +108,20 @@ class ReadyScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.grey.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                'Hinge Angle: ${gameModel.hingeAngle.toStringAsFixed(1)}°',
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 20),
             if (gameModel.userHand != null) ...[
               const Icon(
                 Icons.screen_rotation_outlined,
@@ -116,7 +130,7 @@ class ReadyScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                'Open the device to play!',
+                '開いてください',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Colors.green,
                   fontWeight: FontWeight.bold,
