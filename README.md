@@ -1,6 +1,14 @@
-# fold7_demo_fl
+# Rock-Paper-Scissors for Foldable Devices
 
-A new Flutter project.
+This is a simple Rock-Paper-Scissors game built with Flutter, specifically designed for foldable devices. The app leverages the device's hinge angle to trigger new games, creating a unique and engaging user experience.
+
+## Features
+
+*   **Hinge-based Gameplay:** Opening the device to a near-flat position (over 170 degrees) automatically starts a new game.
+*   **Randomized Gameplay:** Both the user and the computer's hands are chosen randomly for a quick and surprising game.
+*   **Score Tracking:** The app keeps track of wins, losses, and draws.
+*   **Manual Replay:** A "Play Again" button allows for traditional gameplay without needing to fold the device.
+*   **Polished UI:** The app features a clean and modern UI with animations.
 
 ## Getting Started
 
